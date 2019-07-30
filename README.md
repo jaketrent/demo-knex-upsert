@@ -1,3 +1,5 @@
+Demo in support of the [Upsert in Knex.js article](https://jaketrent.com/post/upsert-knexjs/).
+
 ## Run
 
 ```
