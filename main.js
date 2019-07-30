@@ -1,11 +1,11 @@
-const nanoid = require('nanoid')
+const rand = require('nanoid')
 const util = require('util')
 const knex = require('knex')({
   client: 'pg',
   connection: 'postgres://postgres:postgres@localhost/test?sslmode=disable'
 })
 
-const createUser = async ({ email, name }) => {
+async function createUser({ email, name }) {
   const insert = knex('users')
     .insert({ email, name })
     .toString()
@@ -23,7 +23,7 @@ const createUser = async ({ email, name }) => {
 }
 
 async function main() {
-  await createUser({ email: 'test@example.com', name: 'Jake ' + nanoid() })
+  await createUser({ email: 'test@example.com', name: 'Jake ' + rand() })
 
   knex.destroy()
 }
